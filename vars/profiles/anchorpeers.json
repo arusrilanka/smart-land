@@ -1,0 +1,50 @@
+{
+  "lr-ousl-com": {
+    "AnchorPeers": {
+      "mod_policy": "Admins",
+      "value": {
+        "anchor_peers": [
+           { "host": "peer1.lr.ousl.com", "port": "7051" },
+           { "host": "peer2.lr.ousl.com", "port": "7051" }
+        ]
+      },
+      "version": "0"
+    }
+  },
+  "notary-ousl-com": {
+    "AnchorPeers": {
+      "mod_policy": "Admins",
+      "value": {
+        "anchor_peers": [
+           { "host": "peer1.notary.ousl.com", "port": "7051" },
+           { "host": "peer2.notary.ousl.com", "port": "7051" }
+        ]
+      },
+      "version": "0"
+    }
+  },
+  "other-ousl-com": {
+    "AnchorPeers": {
+      "mod_policy": "Admins",
+      "value": {
+        "anchor_peers": [
+           { "host": "peer1.other.ousl.com", "port": "7051" },
+           { "host": "peer2.other.ousl.com", "port": "7051" }
+        ]
+      },
+      "version": "0"
+    }
+  },
+  "rgd-ousl-com": {
+    "AnchorPeers": {
+      "mod_policy": "Admins",
+      "value": {
+        "anchor_peers": [
+           { "host": "peer1.rgd.ousl.com", "port": "7051" },
+           { "host": "peer2.rgd.ousl.com", "port": "7051" }
+        ]
+      },
+      "version": "0"
+    }
+  }
+}

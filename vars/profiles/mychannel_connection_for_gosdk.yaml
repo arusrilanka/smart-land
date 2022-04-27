@@ -1,0 +1,500 @@
+---
+# ROOTPATH should be set to the absolute path of crypto material starting directory
+# for example: export ROOTPATH=/home/ubuntu/mywork/vars/keyfiles
+"name": "mysite"
+"x-type": "hlfv-2.3.0"
+"version": "1.0.0"
+"client":
+  "organization": "lr.ousl.com"
+  "cryptoconfig":
+    "path": "${ROOTPATH}"
+  "connection":
+    "timeout":
+      "peer":
+        "endorser": "300"
+        "eventHub": "300"
+        "eventReg": "300"
+      "orderer": "300"
+  "credentialStore":
+    "path": "/tmp/state-store"
+    "cryptoStore":
+      "path": "/tmp/msp"
+  "BCCSP":
+    "security":
+      "enabled": "true"
+      "default":
+        "provider": "SW"
+      "hashAlgorithm": "SHA2"
+      "softVerify": "true"
+      "level": "256"
+
+"channels":
+  "mychannel":
+    "orderers":
+    - "orderer1.ousl.com"
+    "peers":
+      "peer1.lr.ousl.com":
+        "endorsingPeer": true
+        "chaincodeQuery": true
+        "eventSource": true
+      "peer2.lr.ousl.com":
+        "endorsingPeer": true
+        "chaincodeQuery": true
+        "eventSource": true
+      "peer1.notary.ousl.com":
+        "endorsingPeer": true
+        "chaincodeQuery": true
+        "eventSource": true
+      "peer2.notary.ousl.com":
+        "endorsingPeer": true
+        "chaincodeQuery": true
+        "eventSource": true
+      "peer1.rgd.ousl.com":
+        "endorsingPeer": true
+        "chaincodeQuery": true
+        "eventSource": true
+      "peer2.rgd.ousl.com":
+        "endorsingPeer": true
+        "chaincodeQuery": true
+        "eventSource": true
+      "peer1.other.ousl.com":
+        "endorsingPeer": true
+        "chaincodeQuery": true
+        "eventSource": true
+      "peer2.other.ousl.com":
+        "endorsingPeer": true
+        "chaincodeQuery": true
+        "eventSource": true
+
+"organizations":
+  "lr.ousl.com":
+    "mspid": "lr-ousl-com"
+    "cryptoPath": "peerOrganizations/lr.ousl.com/users/{username}@lr.ousl.com/msp"
+    "peers":
+    - "peer1.lr.ousl.com"
+    - "peer2.lr.ousl.com"
+    "certificateAuthorities":
+    - "ca1.lr.ousl.com"
+  "notary.ousl.com":
+    "mspid": "notary-ousl-com"
+    "cryptoPath": "peerOrganizations/notary.ousl.com/users/{username}@notary.ousl.com/msp"
+    "peers":
+    - "peer1.notary.ousl.com"
+    - "peer2.notary.ousl.com"
+    "certificateAuthorities":
+    - "ca1.notary.ousl.com"
+  "other.ousl.com":
+    "mspid": "other-ousl-com"
+    "cryptoPath": "peerOrganizations/other.ousl.com/users/{username}@other.ousl.com/msp"
+    "peers":
+    - "peer1.other.ousl.com"
+    - "peer2.other.ousl.com"
+    "certificateAuthorities":
+    - "ca1.other.ousl.com"
+  "ousl.com":
+    "mspid": "ousl-com"
+    "cryptoPath": "ordererOrganizations/ousl.com/users/{username}@ousl.com/msp"
+    "orderers":
+    - "orderer1.ousl.com"
+    "certificateAuthorities":
+  "rgd.ousl.com":
+    "mspid": "rgd-ousl-com"
+    "cryptoPath": "peerOrganizations/rgd.ousl.com/users/{username}@rgd.ousl.com/msp"
+    "peers":
+    - "peer1.rgd.ousl.com"
+    - "peer2.rgd.ousl.com"
+    "certificateAuthorities":
+    - "ca1.rgd.ousl.com"
+
+"orderers":
+  "orderer1.ousl.com":
+    "url": "grpcs://orderer1.ousl.com:7050"
+    "grpcOptions":
+      "ssl-target-name-override": "orderer1.ousl.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIICkDCCAjagAwIBAgIUDNvGXlIubFbRuvt6plHCkU4TBEIwCgYIKoZIzj0EAwIw
+        ZDELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMREwDwYDVQQKDAhvdXNsLmNvbTEXMBUGA1UEAwwOdGxzY2Eub3Vz
+        bC5jb20wHhcNMjIwNDI3MTcyODEwWhcNMzIwNDI0MTcyODEwWjBkMQswCQYDVQQG
+        EwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xpbmExEDAOBgNVBAcMB1JhbGVpZ2gx
+        ETAPBgNVBAoMCG91c2wuY29tMRcwFQYDVQQDDA50bHNjYS5vdXNsLmNvbTBZMBMG
+        ByqGSM49AgEGCCqGSM49AwEHA0IABKNu9qHkCTx+ykaW7SkZFJMXjsslRKZDgvfe
+        8NQnSMSHYljw2vaO7byl4bISYF1VZxj4M+5elTko/BUgQgK7AOWjgcUwgcIwHQYD
+        VR0OBBYEFDiPBHBF+Lm6j5kd5dsgqm9Rd8s8MB8GA1UdIwQYMBaAFDiPBHBF+Lm6
+        j5kd5dsgqm9Rd8s8MA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0G
+        A1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBABgNVHREEOTA3hwTAqK6Cgg50
+        bHNjYS5vdXNsLmNvbYIOdGxzY2Etb3VzbC1jb22CCWxvY2FsaG9zdIcEfwAAATAK
+        BggqhkjOPQQDAgNIADBFAiEA6repbJu4r08dsV1KKqenxgIEXHwYwQiwus+2dbF0
+        L/cCIGZ0H1lAwiYFbCUluRsltuHmJs99VamNYs9xidhPZQqE
+        -----END CERTIFICATE-----
+
+"peers":
+  "peer1.lr.ousl.com":
+    "url": "grpcs://peer1.lr.ousl.com:7051"
+    "grpcOptions":
+      "ssl-target-name-override": "peer1.lr.ousl.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIICpzCCAkygAwIBAgIUMB3b69xUrZ8fdDciHnBskRBDYQcwCgYIKoZIzj0EAwIw
+        azELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMRQwEgYDVQQKDAtsci5vdXNsLmNvbTEbMBkGA1UEAwwSdGxzY2Ex
+        LmxyLm91c2wuY29tMB4XDTIyMDQyNzE3MjYzMVoXDTMyMDQyNDE3MjYzMVowazEL
+        MAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQHDAdS
+        YWxlaWdoMRQwEgYDVQQKDAtsci5vdXNsLmNvbTEbMBkGA1UEAwwSdGxzY2ExLmxy
+        Lm91c2wuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEfjRytDDj6O3l7h3N
+        WQPfM5U8E00Ml0EZtbH0WVN2qCRpDkfyzwugf82rK3VerQw2xOBK21ehZzyiXknK
+        inJO4aOBzTCByjAdBgNVHQ4EFgQUtVu4rWCIlsCBWm8xgMbYP+acqgcwHwYDVR0j
+        BBgwFoAUtVu4rWCIlsCBWm8xgMbYP+acqgcwDwYDVR0TAQH/BAUwAwEB/zAOBgNV
+        HQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMEgGA1Ud
+        EQRBMD+HBMCoroKCEnRsc2NhMS5sci5vdXNsLmNvbYISdGxzY2ExLWxyLW91c2wt
+        Y29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSQAwRgIhAJaQOtUpU3r7
+        m9HI1AW/Ycc7Aa32JGKpBEpQnZntBqF7AiEAiC3BDHwj/7fnPbrVC0Vy4E3051JH
+        P2NZeFJpTrWzDpA=
+        -----END CERTIFICATE-----
+
+  "peer2.lr.ousl.com":
+    "url": "grpcs://peer2.lr.ousl.com:7051"
+    "grpcOptions":
+      "ssl-target-name-override": "peer2.lr.ousl.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIICpzCCAkygAwIBAgIUMB3b69xUrZ8fdDciHnBskRBDYQcwCgYIKoZIzj0EAwIw
+        azELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMRQwEgYDVQQKDAtsci5vdXNsLmNvbTEbMBkGA1UEAwwSdGxzY2Ex
+        LmxyLm91c2wuY29tMB4XDTIyMDQyNzE3MjYzMVoXDTMyMDQyNDE3MjYzMVowazEL
+        MAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQHDAdS
+        YWxlaWdoMRQwEgYDVQQKDAtsci5vdXNsLmNvbTEbMBkGA1UEAwwSdGxzY2ExLmxy
+        Lm91c2wuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEfjRytDDj6O3l7h3N
+        WQPfM5U8E00Ml0EZtbH0WVN2qCRpDkfyzwugf82rK3VerQw2xOBK21ehZzyiXknK
+        inJO4aOBzTCByjAdBgNVHQ4EFgQUtVu4rWCIlsCBWm8xgMbYP+acqgcwHwYDVR0j
+        BBgwFoAUtVu4rWCIlsCBWm8xgMbYP+acqgcwDwYDVR0TAQH/BAUwAwEB/zAOBgNV
+        HQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMEgGA1Ud
+        EQRBMD+HBMCoroKCEnRsc2NhMS5sci5vdXNsLmNvbYISdGxzY2ExLWxyLW91c2wt
+        Y29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSQAwRgIhAJaQOtUpU3r7
+        m9HI1AW/Ycc7Aa32JGKpBEpQnZntBqF7AiEAiC3BDHwj/7fnPbrVC0Vy4E3051JH
+        P2NZeFJpTrWzDpA=
+        -----END CERTIFICATE-----
+
+  "peer1.notary.ousl.com":
+    "url": "grpcs://peer1.notary.ousl.com:7051"
+    "grpcOptions":
+      "ssl-target-name-override": "peer1.notary.ousl.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIICvjCCAmSgAwIBAgIUDrFgwMTACjYXqtILuUSBTMDtQVcwCgYIKoZIzj0EAwIw
+        czELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMRgwFgYDVQQKDA9ub3Rhcnkub3VzbC5jb20xHzAdBgNVBAMMFnRs
+        c2NhMS5ub3Rhcnkub3VzbC5jb20wHhcNMjIwNDI3MTcyNzA0WhcNMzIwNDI0MTcy
+        NzA0WjBzMQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xpbmExEDAO
+        BgNVBAcMB1JhbGVpZ2gxGDAWBgNVBAoMD25vdGFyeS5vdXNsLmNvbTEfMB0GA1UE
+        AwwWdGxzY2ExLm5vdGFyeS5vdXNsLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEH
+        A0IABM7lDXtz0kttttSK+xRBo+Uh/TFFMOUt3FcMkejb+KToEjxsuk+MWJkBPdg3
+        EyS70e2dJyrLcLdm2nJKf1lgVhSjgdUwgdIwHQYDVR0OBBYEFJpwmuzV2sOr2h+Q
+        YZ1xkjHNo7A8MB8GA1UdIwQYMBaAFJpwmuzV2sOr2h+QYZ1xkjHNo7A8MA8GA1Ud
+        EwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMB
+        BggrBgEFBQcDAjBQBgNVHREESTBHhwTAqK6CghZ0bHNjYTEubm90YXJ5Lm91c2wu
+        Y29tghZ0bHNjYTEtbm90YXJ5LW91c2wtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYI
+        KoZIzj0EAwIDSAAwRQIhAIkcf4Bx0wFwYaAqEp1X368WsHtQVLa9+llS+v5SAYuq
+        AiBe6kmoSu1rEkeFFLHjsGXgSlJTAXwPEPxXXxrzKZS8mw==
+        -----END CERTIFICATE-----
+
+  "peer2.notary.ousl.com":
+    "url": "grpcs://peer2.notary.ousl.com:7051"
+    "grpcOptions":
+      "ssl-target-name-override": "peer2.notary.ousl.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIICvjCCAmSgAwIBAgIUDrFgwMTACjYXqtILuUSBTMDtQVcwCgYIKoZIzj0EAwIw
+        czELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMRgwFgYDVQQKDA9ub3Rhcnkub3VzbC5jb20xHzAdBgNVBAMMFnRs
+        c2NhMS5ub3Rhcnkub3VzbC5jb20wHhcNMjIwNDI3MTcyNzA0WhcNMzIwNDI0MTcy
+        NzA0WjBzMQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xpbmExEDAO
+        BgNVBAcMB1JhbGVpZ2gxGDAWBgNVBAoMD25vdGFyeS5vdXNsLmNvbTEfMB0GA1UE
+        AwwWdGxzY2ExLm5vdGFyeS5vdXNsLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEH
+        A0IABM7lDXtz0kttttSK+xRBo+Uh/TFFMOUt3FcMkejb+KToEjxsuk+MWJkBPdg3
+        EyS70e2dJyrLcLdm2nJKf1lgVhSjgdUwgdIwHQYDVR0OBBYEFJpwmuzV2sOr2h+Q
+        YZ1xkjHNo7A8MB8GA1UdIwQYMBaAFJpwmuzV2sOr2h+QYZ1xkjHNo7A8MA8GA1Ud
+        EwEB/wQFMAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMB
+        BggrBgEFBQcDAjBQBgNVHREESTBHhwTAqK6CghZ0bHNjYTEubm90YXJ5Lm91c2wu
+        Y29tghZ0bHNjYTEtbm90YXJ5LW91c2wtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYI
+        KoZIzj0EAwIDSAAwRQIhAIkcf4Bx0wFwYaAqEp1X368WsHtQVLa9+llS+v5SAYuq
+        AiBe6kmoSu1rEkeFFLHjsGXgSlJTAXwPEPxXXxrzKZS8mw==
+        -----END CERTIFICATE-----
+
+  "peer1.rgd.ousl.com":
+    "url": "grpcs://peer1.rgd.ousl.com:7051"
+    "grpcOptions":
+      "ssl-target-name-override": "peer1.rgd.ousl.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIICrDCCAlKgAwIBAgIUSFKtKKGNkvJ4rUNLaWdqWhUUxacwCgYIKoZIzj0EAwIw
+        bTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMRUwEwYDVQQKDAxyZ2Qub3VzbC5jb20xHDAaBgNVBAMME3Rsc2Nh
+        MS5yZ2Qub3VzbC5jb20wHhcNMjIwNDI3MTcyODM1WhcNMzIwNDI0MTcyODM1WjBt
+        MQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xpbmExEDAOBgNVBAcM
+        B1JhbGVpZ2gxFTATBgNVBAoMDHJnZC5vdXNsLmNvbTEcMBoGA1UEAwwTdGxzY2Ex
+        LnJnZC5vdXNsLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABNMOoalPXN0q
+        ruIkVDDRFxXGQg7CPVrPPT3KmLwu2jG/vG9CVT/Mm3nl4o36xSOuSBX9hI6iPObU
+        KMwYVX4jInijgc8wgcwwHQYDVR0OBBYEFMSyIlNqomNg2X7dT0az3tlUiC7NMB8G
+        A1UdIwQYMBaAFMSyIlNqomNg2X7dT0az3tlUiC7NMA8GA1UdEwEB/wQFMAMBAf8w
+        DgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBK
+        BgNVHREEQzBBhwTAqK6CghN0bHNjYTEucmdkLm91c2wuY29tghN0bHNjYTEtcmdk
+        LW91c2wtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSAAwRQIgCkU9
+        DfNmlbmZGFwoW+rkUJghV2H53+4bEInuYvdB64ICIQCyVakhwNtOABV/ApICt8Sv
+        k8CZX0neOsa0LA95mOgjkw==
+        -----END CERTIFICATE-----
+
+  "peer2.rgd.ousl.com":
+    "url": "grpcs://peer2.rgd.ousl.com:7051"
+    "grpcOptions":
+      "ssl-target-name-override": "peer2.rgd.ousl.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIICrDCCAlKgAwIBAgIUSFKtKKGNkvJ4rUNLaWdqWhUUxacwCgYIKoZIzj0EAwIw
+        bTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMRUwEwYDVQQKDAxyZ2Qub3VzbC5jb20xHDAaBgNVBAMME3Rsc2Nh
+        MS5yZ2Qub3VzbC5jb20wHhcNMjIwNDI3MTcyODM1WhcNMzIwNDI0MTcyODM1WjBt
+        MQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xpbmExEDAOBgNVBAcM
+        B1JhbGVpZ2gxFTATBgNVBAoMDHJnZC5vdXNsLmNvbTEcMBoGA1UEAwwTdGxzY2Ex
+        LnJnZC5vdXNsLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABNMOoalPXN0q
+        ruIkVDDRFxXGQg7CPVrPPT3KmLwu2jG/vG9CVT/Mm3nl4o36xSOuSBX9hI6iPObU
+        KMwYVX4jInijgc8wgcwwHQYDVR0OBBYEFMSyIlNqomNg2X7dT0az3tlUiC7NMB8G
+        A1UdIwQYMBaAFMSyIlNqomNg2X7dT0az3tlUiC7NMA8GA1UdEwEB/wQFMAMBAf8w
+        DgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBK
+        BgNVHREEQzBBhwTAqK6CghN0bHNjYTEucmdkLm91c2wuY29tghN0bHNjYTEtcmdk
+        LW91c2wtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSAAwRQIgCkU9
+        DfNmlbmZGFwoW+rkUJghV2H53+4bEInuYvdB64ICIQCyVakhwNtOABV/ApICt8Sv
+        k8CZX0neOsa0LA95mOgjkw==
+        -----END CERTIFICATE-----
+
+  "peer1.other.ousl.com":
+    "url": "grpcs://peer1.other.ousl.com:7051"
+    "grpcOptions":
+      "ssl-target-name-override": "peer1.other.ousl.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIICtzCCAl6gAwIBAgIUAXyZMXT1mknPzk24gylOXn+bLzcwCgYIKoZIzj0EAwIw
+        cTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMRcwFQYDVQQKDA5vdGhlci5vdXNsLmNvbTEeMBwGA1UEAwwVdGxz
+        Y2ExLm90aGVyLm91c2wuY29tMB4XDTIyMDQyNzE3MjczN1oXDTMyMDQyNDE3Mjcz
+        N1owcTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYD
+        VQQHDAdSYWxlaWdoMRcwFQYDVQQKDA5vdGhlci5vdXNsLmNvbTEeMBwGA1UEAwwV
+        dGxzY2ExLm90aGVyLm91c2wuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE
+        aT003k9ypQj5f2uF2n2h8Yms9V05UsZL1ZpJ/iGSbgyeblPVSbbZg8Tt+Ru1eB/k
+        +q3X8wjVD66uH2x9aASJ4aOB0zCB0DAdBgNVHQ4EFgQUHLUoTv75RbfLGcpMUDvE
+        sp3aMLQwHwYDVR0jBBgwFoAUHLUoTv75RbfLGcpMUDvEsp3aMLQwDwYDVR0TAQH/
+        BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsG
+        AQUFBwMCME4GA1UdEQRHMEWHBMCoroKCFXRsc2NhMS5vdGhlci5vdXNsLmNvbYIV
+        dGxzY2ExLW90aGVyLW91c2wtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0E
+        AwIDRwAwRAIgObmjxRGyvtXSZ3Scgmk1CA0hWyMQxmf3fEc+8ztwbL8CIGw3YImb
+        xnOnkSwer+IMpFye41XwA50OE9zWew1Lo873
+        -----END CERTIFICATE-----
+
+  "peer2.other.ousl.com":
+    "url": "grpcs://peer2.other.ousl.com:7051"
+    "grpcOptions":
+      "ssl-target-name-override": "peer2.other.ousl.com"
+    "tlsCACerts":
+      "pem": |
+        -----BEGIN CERTIFICATE-----
+        MIICtzCCAl6gAwIBAgIUAXyZMXT1mknPzk24gylOXn+bLzcwCgYIKoZIzj0EAwIw
+        cTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMRcwFQYDVQQKDA5vdGhlci5vdXNsLmNvbTEeMBwGA1UEAwwVdGxz
+        Y2ExLm90aGVyLm91c2wuY29tMB4XDTIyMDQyNzE3MjczN1oXDTMyMDQyNDE3Mjcz
+        N1owcTELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYD
+        VQQHDAdSYWxlaWdoMRcwFQYDVQQKDA5vdGhlci5vdXNsLmNvbTEeMBwGA1UEAwwV
+        dGxzY2ExLm90aGVyLm91c2wuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE
+        aT003k9ypQj5f2uF2n2h8Yms9V05UsZL1ZpJ/iGSbgyeblPVSbbZg8Tt+Ru1eB/k
+        +q3X8wjVD66uH2x9aASJ4aOB0zCB0DAdBgNVHQ4EFgQUHLUoTv75RbfLGcpMUDvE
+        sp3aMLQwHwYDVR0jBBgwFoAUHLUoTv75RbfLGcpMUDvEsp3aMLQwDwYDVR0TAQH/
+        BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsG
+        AQUFBwMCME4GA1UdEQRHMEWHBMCoroKCFXRsc2NhMS5vdGhlci5vdXNsLmNvbYIV
+        dGxzY2ExLW90aGVyLW91c2wtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0E
+        AwIDRwAwRAIgObmjxRGyvtXSZ3Scgmk1CA0hWyMQxmf3fEc+8ztwbL8CIGw3YImb
+        xnOnkSwer+IMpFye41XwA50OE9zWew1Lo873
+        -----END CERTIFICATE-----
+
+"certificateAuthorities":
+  "ca1.lr.ousl.com":
+    "url": "https://ca1.lr.ousl.com:7054"
+    "tlsCACerts":
+      "pem":
+      - |
+        -----BEGIN CERTIFICATE-----
+        MIICmzCCAkCgAwIBAgIUfjxiDoyHo1A5kiMpVUDpzoxBY+0wCgYIKoZIzj0EAwIw
+        aDELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMRQwEgYDVQQKDAtsci5vdXNsLmNvbTEYMBYGA1UEAwwPY2ExLmxy
+        Lm91c2wuY29tMB4XDTIyMDQyNzE3MjYzMFoXDTMyMDQyNDE3MjYzMFowaDELMAkG
+        A1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQHDAdSYWxl
+        aWdoMRQwEgYDVQQKDAtsci5vdXNsLmNvbTEYMBYGA1UEAwwPY2ExLmxyLm91c2wu
+        Y29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnEAtuK4pRzdu31l1Zhx6sIuV
+        1N3JamUH32Ufm8pclrVnWZ+0bm2vxn2UcPOUss3jUtjO0eIb27yV6rMlt0LhC6OB
+        xzCBxDAdBgNVHQ4EFgQUEFGkUoTsclm36w+TdfGx1lqcc68wHwYDVR0jBBgwFoAU
+        EFGkUoTsclm36w+TdfGx1lqcc68wDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8E
+        BAMCAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMEIGA1UdEQQ7MDmH
+        BMCoroKCD2NhMS5sci5vdXNsLmNvbYIPY2ExLWxyLW91c2wtY29tgglsb2NhbGhv
+        c3SHBH8AAAEwCgYIKoZIzj0EAwIDSQAwRgIhAMckqhjIZAPPaOn9tczMQzxtoaBN
+        dvwU1yw0TfYDZCnAAiEAtcy6jZIHLpt++oJtF7poEv0hv1NIDOxXgHucXUMpq+k=
+        -----END CERTIFICATE-----
+
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca1"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca1.notary.ousl.com":
+    "url": "https://ca1.notary.ousl.com:7054"
+    "tlsCACerts":
+      "pem":
+      - |
+        -----BEGIN CERTIFICATE-----
+        MIICsTCCAligAwIBAgIUCMNDyI5oDBZ8GECL4PdC1HS3Ln0wCgYIKoZIzj0EAwIw
+        cDELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMRgwFgYDVQQKDA9ub3Rhcnkub3VzbC5jb20xHDAaBgNVBAMME2Nh
+        MS5ub3Rhcnkub3VzbC5jb20wHhcNMjIwNDI3MTcyNzAzWhcNMzIwNDI0MTcyNzAz
+        WjBwMQswCQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xpbmExEDAOBgNV
+        BAcMB1JhbGVpZ2gxGDAWBgNVBAoMD25vdGFyeS5vdXNsLmNvbTEcMBoGA1UEAwwT
+        Y2ExLm5vdGFyeS5vdXNsLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABF84
+        io4r/m9K9PwjjU9XuF7ihDExFuIlJMplKEeRb+o8iE+DLSK2/twrXrrJBGUgb67s
+        XYKwPKRV9KckeDfKNCOjgc8wgcwwHQYDVR0OBBYEFG+BL6wigUk7hTJ1NB2NW41a
+        lTaRMB8GA1UdIwQYMBaAFG+BL6wigUk7hTJ1NB2NW41alTaRMA8GA1UdEwEB/wQF
+        MAMBAf8wDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEF
+        BQcDAjBKBgNVHREEQzBBhwTAqK6CghNjYTEubm90YXJ5Lm91c2wuY29tghNjYTEt
+        bm90YXJ5LW91c2wtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDRwAw
+        RAIgOERVjuiSFb0znbtI/doBXOCWj7re4yodJL0HK0EYL8ECIBfQiSC6DnqInUhH
+        NNugRH7gQDU+bTiXKq+jPRAXNeSw
+        -----END CERTIFICATE-----
+
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca1"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca1.rgd.ousl.com":
+    "url": "https://ca1.rgd.ousl.com:7054"
+    "tlsCACerts":
+      "pem":
+      - |
+        -----BEGIN CERTIFICATE-----
+        MIICnzCCAkagAwIBAgIUVBvXWDiLIvnuJMN/Z6OOBwFO91UwCgYIKoZIzj0EAwIw
+        ajELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMRUwEwYDVQQKDAxyZ2Qub3VzbC5jb20xGTAXBgNVBAMMEGNhMS5y
+        Z2Qub3VzbC5jb20wHhcNMjIwNDI3MTcyODM1WhcNMzIwNDI0MTcyODM1WjBqMQsw
+        CQYDVQQGEwJVUzEXMBUGA1UECAwOTm9ydGggQ2Fyb2xpbmExEDAOBgNVBAcMB1Jh
+        bGVpZ2gxFTATBgNVBAoMDHJnZC5vdXNsLmNvbTEZMBcGA1UEAwwQY2ExLnJnZC5v
+        dXNsLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABC4V3hebadJjxFDLOrRN
+        EAibNUFg2D4ZByZ4zx9thyLiJqNzr0M2j49Wr3spHxCH42LTQ4aQQd6D0qDs0A12
+        roSjgckwgcYwHQYDVR0OBBYEFNSCQAVVHj+YBD6RGe292X5BzTnIMB8GA1UdIwQY
+        MBaAFNSCQAVVHj+YBD6RGe292X5BzTnIMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0P
+        AQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBEBgNVHREE
+        PTA7hwTAqK6CghBjYTEucmdkLm91c2wuY29tghBjYTEtcmdkLW91c2wtY29tggls
+        b2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDRwAwRAIgJBpQCHaaTYR0A5+H52Gi
+        zQLS+8DQQlf+yEy57fqwkG4CIBzrXlKfnqISnL3l3o4o0Ebl7opZtVJfuKxNdUwX
+        /0/1
+        -----END CERTIFICATE-----
+
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca1"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+  "ca1.other.ousl.com":
+    "url": "https://ca1.other.ousl.com:7054"
+    "tlsCACerts":
+      "pem":
+      - |
+        -----BEGIN CERTIFICATE-----
+        MIICrDCCAlKgAwIBAgIUKyTVuc1Qq9DS6gWQ4VAeLfdkJW8wCgYIKoZIzj0EAwIw
+        bjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMRcwFQYDVQQKDA5vdGhlci5vdXNsLmNvbTEbMBkGA1UEAwwSY2Ex
+        Lm90aGVyLm91c2wuY29tMB4XDTIyMDQyNzE3MjczN1oXDTMyMDQyNDE3MjczN1ow
+        bjELMAkGA1UEBhMCVVMxFzAVBgNVBAgMDk5vcnRoIENhcm9saW5hMRAwDgYDVQQH
+        DAdSYWxlaWdoMRcwFQYDVQQKDA5vdGhlci5vdXNsLmNvbTEbMBkGA1UEAwwSY2Ex
+        Lm90aGVyLm91c2wuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAERb+q8i/i
+        j7TZe+aUCylc1TDlmZiyw7xuoCNTIs2sroTWxqqwdZgd6nbaJoBwCdLtYrXaUr/i
+        gw+qKTbF8t3bp6OBzTCByjAdBgNVHQ4EFgQUXGpzCi7OSO9qjFZWsgTjhHH/Epcw
+        HwYDVR0jBBgwFoAUXGpzCi7OSO9qjFZWsgTjhHH/EpcwDwYDVR0TAQH/BAUwAwEB
+        /zAOBgNVHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMC
+        MEgGA1UdEQRBMD+HBMCoroKCEmNhMS5vdGhlci5vdXNsLmNvbYISY2ExLW90aGVy
+        LW91c2wtY29tgglsb2NhbGhvc3SHBH8AAAEwCgYIKoZIzj0EAwIDSAAwRQIhAL7j
+        d+Q5rYGUCSX3EFuLKNYTRUaQYmOg1lrsrXC9O5QVAiBv/l+0Oeo2/P68Yq6PFZt+
+        trCqjuSpPCstJFRUyIQXpg==
+        -----END CERTIFICATE-----
+
+    "httpOptions":
+      "verify": "false"
+    "caName": "ca1"
+    "registrar":
+      "enrollId": "admin"
+      "enrollSecret": "adminpw"
+
+"entityMatchers":
+  "orderer":
+  - "mappedHost": "orderer1.ousl.com"
+    "pattern": "(\\w*)orderer1.ousl.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "orderer1.ousl.com"
+    "urlSubstitutionExp": "orderer1.ousl.com:7050"
+  
+  "peer":
+  - "mappedHost": "peer1.lr.ousl.com"
+    "pattern": "(\\w*)peer1.lr.ousl.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "peer1.lr.ousl.com"
+    "urlSubstitutionExp": "peer1.lr.ousl.com:7051"
+  - "mappedHost": "peer2.lr.ousl.com"
+    "pattern": "(\\w*)peer2.lr.ousl.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "peer2.lr.ousl.com"
+    "urlSubstitutionExp": "peer2.lr.ousl.com:7051"
+  - "mappedHost": "peer1.notary.ousl.com"
+    "pattern": "(\\w*)peer1.notary.ousl.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "peer1.notary.ousl.com"
+    "urlSubstitutionExp": "peer1.notary.ousl.com:7051"
+  - "mappedHost": "peer2.notary.ousl.com"
+    "pattern": "(\\w*)peer2.notary.ousl.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "peer2.notary.ousl.com"
+    "urlSubstitutionExp": "peer2.notary.ousl.com:7051"
+  - "mappedHost": "peer1.rgd.ousl.com"
+    "pattern": "(\\w*)peer1.rgd.ousl.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "peer1.rgd.ousl.com"
+    "urlSubstitutionExp": "peer1.rgd.ousl.com:7051"
+  - "mappedHost": "peer2.rgd.ousl.com"
+    "pattern": "(\\w*)peer2.rgd.ousl.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "peer2.rgd.ousl.com"
+    "urlSubstitutionExp": "peer2.rgd.ousl.com:7051"
+  - "mappedHost": "peer1.other.ousl.com"
+    "pattern": "(\\w*)peer1.other.ousl.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "peer1.other.ousl.com"
+    "urlSubstitutionExp": "peer1.other.ousl.com:7051"
+  - "mappedHost": "peer2.other.ousl.com"
+    "pattern": "(\\w*)peer2.other.ousl.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "peer2.other.ousl.com"
+    "urlSubstitutionExp": "peer2.other.ousl.com:7051"
+  
+  "certificateAuthorities":
+  - "mappedHost": "ca1.lr.ousl.com"
+    "pattern": "(\\w*)ca1.lr.ousl.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "ca1.lr.ousl.com"
+    "urlSubstitutionExp": "ca1.lr.ousl.com:7054"
+  - "mappedHost": "ca1.notary.ousl.com"
+    "pattern": "(\\w*)ca1.notary.ousl.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "ca1.notary.ousl.com"
+    "urlSubstitutionExp": "ca1.notary.ousl.com:7054"
+  - "mappedHost": "ca1.rgd.ousl.com"
+    "pattern": "(\\w*)ca1.rgd.ousl.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "ca1.rgd.ousl.com"
+    "urlSubstitutionExp": "ca1.rgd.ousl.com:7054"
+  - "mappedHost": "ca1.other.ousl.com"
+    "pattern": "(\\w*)ca1.other.ousl.com(\\w*)"
+    "sslTargetOverrideUrlSubstitutionExp": "ca1.other.ousl.com"
+    "urlSubstitutionExp": "ca1.other.ousl.com:7054"

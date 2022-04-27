@@ -1,0 +1,224 @@
+---
+Organizations:
+  - &lr-ousl-com
+      Name: lr-ousl-com
+      ID: lr-ousl-com
+      MSPDir: keyfiles/peerOrganizations/lr.ousl.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('lr-ousl-com.admin', 'lr-ousl-com.peer', 'lr-ousl-com.client')"
+        Writers:
+          Type: Signature
+          Rule: "OR('lr-ousl-com.admin', 'lr-ousl-com.client')"
+        Admins:
+          Type: Signature
+          Rule: "OR('lr-ousl-com.admin')"
+        Endorsement:
+          Type: Signature
+          Rule: "OR('lr-ousl-com.peer')"
+
+      AnchorPeers:
+      - Host: peer1.lr.ousl.com
+        Port: 7051
+      - Host: peer2.lr.ousl.com
+        Port: 7051
+  - &notary-ousl-com
+      Name: notary-ousl-com
+      ID: notary-ousl-com
+      MSPDir: keyfiles/peerOrganizations/notary.ousl.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('notary-ousl-com.admin', 'notary-ousl-com.peer', 'notary-ousl-com.client')"
+        Writers:
+          Type: Signature
+          Rule: "OR('notary-ousl-com.admin', 'notary-ousl-com.client')"
+        Admins:
+          Type: Signature
+          Rule: "OR('notary-ousl-com.admin')"
+        Endorsement:
+          Type: Signature
+          Rule: "OR('notary-ousl-com.peer')"
+
+      AnchorPeers:
+      - Host: peer1.notary.ousl.com
+        Port: 7051
+      - Host: peer2.notary.ousl.com
+        Port: 7051
+  - &other-ousl-com
+      Name: other-ousl-com
+      ID: other-ousl-com
+      MSPDir: keyfiles/peerOrganizations/other.ousl.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('other-ousl-com.admin', 'other-ousl-com.peer', 'other-ousl-com.client')"
+        Writers:
+          Type: Signature
+          Rule: "OR('other-ousl-com.admin', 'other-ousl-com.client')"
+        Admins:
+          Type: Signature
+          Rule: "OR('other-ousl-com.admin')"
+        Endorsement:
+          Type: Signature
+          Rule: "OR('other-ousl-com.peer')"
+
+      AnchorPeers:
+      - Host: peer1.other.ousl.com
+        Port: 7051
+      - Host: peer2.other.ousl.com
+        Port: 7051
+  - &ousl-com
+      Name: ousl-com
+      ID: ousl-com
+      MSPDir: keyfiles/ordererOrganizations/ousl.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('ousl-com.member')"
+        Writers:
+          Type: Signature
+          Rule: "OR('ousl-com.member')"
+        Admins:
+          Type: Signature
+          Rule: "OR('ousl-com.admin')"
+  - &rgd-ousl-com
+      Name: rgd-ousl-com
+      ID: rgd-ousl-com
+      MSPDir: keyfiles/peerOrganizations/rgd.ousl.com/msp
+      Policies:
+        Readers:
+          Type: Signature
+          Rule: "OR('rgd-ousl-com.admin', 'rgd-ousl-com.peer', 'rgd-ousl-com.client')"
+        Writers:
+          Type: Signature
+          Rule: "OR('rgd-ousl-com.admin', 'rgd-ousl-com.client')"
+        Admins:
+          Type: Signature
+          Rule: "OR('rgd-ousl-com.admin')"
+        Endorsement:
+          Type: Signature
+          Rule: "OR('rgd-ousl-com.peer')"
+
+      AnchorPeers:
+      - Host: peer1.rgd.ousl.com
+        Port: 7051
+      - Host: peer2.rgd.ousl.com
+        Port: 7051
+
+Capabilities:
+  Channel: &ChannelCapabilities
+    V2_0: true
+
+  Orderer: &OrdererCapabilities
+    V2_0: true
+
+  Application: &ApplicationCapabilities
+    V2_0: true
+
+Application: &ApplicationDefaults
+  Organizations:
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    LifecycleEndorsement:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Endorsement"
+    Endorsement:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Endorsement"
+
+  Capabilities:
+    <<: *ApplicationCapabilities
+
+Orderer: &OrdererDefaults
+  OrdererType: etcdraft
+
+  BatchTimeout: 2s
+
+  BatchSize:
+    MaxMessageCount: 10
+    AbsoluteMaxBytes: 99 MB
+    PreferredMaxBytes: 512 KB
+
+  Addresses:
+  - orderer1.ousl.com:7050
+  EtcdRaft:
+    Consenters:
+    - Host: orderer1.ousl.com
+      Port: 7050
+      ClientTLSCert: keyfiles/ordererOrganizations/ousl.com/orderers/orderer1.ousl.com/tls/server.crt
+      ServerTLSCert: keyfiles/ordererOrganizations/ousl.com/orderers/orderer1.ousl.com/tls/server.crt
+  Organizations:
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    BlockValidation:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+
+Channel: &ChannelDefaults
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+
+  Capabilities:
+    <<: *ChannelCapabilities
+
+Profiles:
+  OrgChannel:
+    Consortium: SampleConsortium
+    <<: *ChannelDefaults
+    Application:
+      <<: *ApplicationDefaults
+      Organizations:
+      - *lr-ousl-com
+      - *notary-ousl-com
+      - *other-ousl-com
+      - *rgd-ousl-com
+      Capabilities:
+        <<: *ApplicationCapabilities
+
+  OrdererGenesis:
+    <<: *ChannelDefaults
+    Capabilities:
+      <<: *ChannelCapabilities
+    Orderer:
+      <<: *OrdererDefaults
+      Organizations:
+      - *ousl-com
+      Capabilities:
+        <<: *OrdererCapabilities
+    Application:
+      <<: *ApplicationDefaults
+      Organizations:
+      - <<: *ousl-com
+    Consortiums:
+      SampleConsortium:
+        Organizations:
+        - *lr-ousl-com
+        - *notary-ousl-com
+        - *other-ousl-com
+        - *rgd-ousl-com

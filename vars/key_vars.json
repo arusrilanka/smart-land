@@ -1,0 +1,170 @@
+{
+  "Admin@lr.ousl.com": {
+    "key": "Admin@lr.ousl.com",
+    "org": "lr.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/lr.ousl.com/users/Admin@lr.ousl.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/lr.ousl.com/users/Admin@lr.ousl.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@notary.ousl.com": {
+    "key": "Admin@notary.ousl.com",
+    "org": "notary.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/notary.ousl.com/users/Admin@notary.ousl.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/notary.ousl.com/users/Admin@notary.ousl.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@other.ousl.com": {
+    "key": "Admin@other.ousl.com",
+    "org": "other.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/other.ousl.com/users/Admin@other.ousl.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/other.ousl.com/users/Admin@other.ousl.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@ousl.com": {
+    "key": "Admin@ousl.com",
+    "org": "ousl.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/ousl.com/users/Admin@ousl.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/ousl.com/users/Admin@ousl.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "Admin@rgd.ousl.com": {
+    "key": "Admin@rgd.ousl.com",
+    "org": "rgd.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/rgd.ousl.com/users/Admin@rgd.ousl.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/rgd.ousl.com/users/Admin@rgd.ousl.com/msp/keystore/priv_sk",
+    "type": "users"
+  },
+  "lr.ousl.com": {
+    "key": "lr.ousl.com",
+    "org": "lr.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/lr.ousl.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/lr.ousl.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "lr.ousl.com.tlsca": {
+    "key": "lr.ousl.com",
+    "org": "lr.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/lr.ousl.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/lr.ousl.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "notary.ousl.com": {
+    "key": "notary.ousl.com",
+    "org": "notary.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/notary.ousl.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/notary.ousl.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "notary.ousl.com.tlsca": {
+    "key": "notary.ousl.com",
+    "org": "notary.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/notary.ousl.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/notary.ousl.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "orderer1.ousl.com": {
+    "key": "orderer1.ousl.com",
+    "org": "ousl.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/ousl.com/orderers/orderer1.ousl.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/ousl.com/orderers/orderer1.ousl.com/msp/keystore/priv_sk",
+    "type": "orderers"
+  },
+  "other.ousl.com": {
+    "key": "other.ousl.com",
+    "org": "other.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/other.ousl.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/other.ousl.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "other.ousl.com.tlsca": {
+    "key": "other.ousl.com",
+    "org": "other.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/other.ousl.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/other.ousl.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "ousl.com": {
+    "key": "ousl.com",
+    "org": "ousl.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/ousl.com/ca/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/ousl.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "ousl.com.tlsca": {
+    "key": "ousl.com",
+    "org": "ousl.com",
+    "path": "/home/vars/keyfiles/ordererOrganizations/ousl.com/tlsca/priv_sk",
+    "pkey": "keyfiles/ordererOrganizations/ousl.com/tlsca/priv_sk",
+    "type": "tlsca"
+  },
+  "peer1.lr.ousl.com": {
+    "key": "peer1.lr.ousl.com",
+    "org": "lr.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/lr.ousl.com/peers/peer1.lr.ousl.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/lr.ousl.com/peers/peer1.lr.ousl.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer1.notary.ousl.com": {
+    "key": "peer1.notary.ousl.com",
+    "org": "notary.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/notary.ousl.com/peers/peer1.notary.ousl.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/notary.ousl.com/peers/peer1.notary.ousl.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer1.other.ousl.com": {
+    "key": "peer1.other.ousl.com",
+    "org": "other.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/other.ousl.com/peers/peer1.other.ousl.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/other.ousl.com/peers/peer1.other.ousl.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer1.rgd.ousl.com": {
+    "key": "peer1.rgd.ousl.com",
+    "org": "rgd.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/rgd.ousl.com/peers/peer1.rgd.ousl.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/rgd.ousl.com/peers/peer1.rgd.ousl.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer2.lr.ousl.com": {
+    "key": "peer2.lr.ousl.com",
+    "org": "lr.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/lr.ousl.com/peers/peer2.lr.ousl.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/lr.ousl.com/peers/peer2.lr.ousl.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer2.notary.ousl.com": {
+    "key": "peer2.notary.ousl.com",
+    "org": "notary.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/notary.ousl.com/peers/peer2.notary.ousl.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/notary.ousl.com/peers/peer2.notary.ousl.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer2.other.ousl.com": {
+    "key": "peer2.other.ousl.com",
+    "org": "other.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/other.ousl.com/peers/peer2.other.ousl.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/other.ousl.com/peers/peer2.other.ousl.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "peer2.rgd.ousl.com": {
+    "key": "peer2.rgd.ousl.com",
+    "org": "rgd.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/rgd.ousl.com/peers/peer2.rgd.ousl.com/msp/keystore/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/rgd.ousl.com/peers/peer2.rgd.ousl.com/msp/keystore/priv_sk",
+    "type": "peers"
+  },
+  "rgd.ousl.com": {
+    "key": "rgd.ousl.com",
+    "org": "rgd.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/rgd.ousl.com/ca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/rgd.ousl.com/ca/priv_sk",
+    "type": "ca"
+  },
+  "rgd.ousl.com.tlsca": {
+    "key": "rgd.ousl.com",
+    "org": "rgd.ousl.com",
+    "path": "/home/vars/keyfiles/peerOrganizations/rgd.ousl.com/tlsca/priv_sk",
+    "pkey": "keyfiles/peerOrganizations/rgd.ousl.com/tlsca/priv_sk",
+    "type": "tlsca"
+  }
+}

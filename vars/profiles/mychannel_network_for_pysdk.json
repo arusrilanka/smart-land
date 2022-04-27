@@ -1,0 +1,213 @@
+{
+  "name": "fabric-network",
+  "description": "Generated network configuration file",
+  "version": "0.1",
+  "client": {
+    "organization": "rgd.ousl.com",
+    "credentialStore": {
+      "path": "/tmp/hfc-kvs",
+      "cryptoStore": {
+        "path": "/tmp/hfc-cvs"
+      },
+      "wallet": "wallet-name"
+    }
+  },
+  "organizations": {
+    "lr.ousl.com": {
+      "mspid": "lr-ousl-com",
+      "peers": [
+        "peer1.lr.ousl.com",
+        "peer2.lr.ousl.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/peerOrganizations/lr.ousl.com/users/Admin@lr.ousl.com/msp/signcerts/Admin@lr.ousl.com-cert.pem",
+          "private_key": "/keyfiles/peerOrganizations/lr.ousl.com/users/Admin@lr.ousl.com/msp/keystore/priv_sk"
+        }
+      }
+    },
+    "notary.ousl.com": {
+      "mspid": "notary-ousl-com",
+      "peers": [
+        "peer1.notary.ousl.com",
+        "peer2.notary.ousl.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/peerOrganizations/notary.ousl.com/users/Admin@notary.ousl.com/msp/signcerts/Admin@notary.ousl.com-cert.pem",
+          "private_key": "/keyfiles/peerOrganizations/notary.ousl.com/users/Admin@notary.ousl.com/msp/keystore/priv_sk"
+        }
+      }
+    },
+    "other.ousl.com": {
+      "mspid": "other-ousl-com",
+      "peers": [
+        "peer1.other.ousl.com",
+        "peer2.other.ousl.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/peerOrganizations/other.ousl.com/users/Admin@other.ousl.com/msp/signcerts/Admin@other.ousl.com-cert.pem",
+          "private_key": "/keyfiles/peerOrganizations/other.ousl.com/users/Admin@other.ousl.com/msp/keystore/priv_sk"
+        }
+      }
+    },
+    "ousl.com": {
+      "mspid": "ousl-com",
+      "orderers": [
+        "orderer1.ousl.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/ordererOrganizations/ousl.com/users/Admin@ousl.com/msp/signcerts/Admin@ousl.com-cert.pem",
+          "private_key": "/keyfiles/ordererOrganizations/ousl.com/users/Admin@ousl.com/msp/keystore/priv_sk"
+        }
+      }
+    },
+    "rgd.ousl.com": {
+      "mspid": "rgd-ousl-com",
+      "peers": [
+        "peer1.rgd.ousl.com",
+        "peer2.rgd.ousl.com"
+      ],
+      "users": {
+        "Admin": {
+          "cert": "/keyfiles/peerOrganizations/rgd.ousl.com/users/Admin@rgd.ousl.com/msp/signcerts/Admin@rgd.ousl.com-cert.pem",
+          "private_key": "/keyfiles/peerOrganizations/rgd.ousl.com/users/Admin@rgd.ousl.com/msp/keystore/priv_sk"
+        }
+      }
+    }
+  },
+  "orderers": {
+    "orderer1.ousl.com": {
+      "url": "orderer1.ousl.com:7050",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "orderer1.ousl.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/ordererOrganizations/ousl.com/orderers/orderer1.ousl.com/tls/ca.crt"
+      }
+    }
+  },
+  "peers": {
+    "peer1.lr.ousl.com": {
+      "url": "peer1.lr.ousl.com:7051",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer1.lr.ousl.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/lr.ousl.com/peers/peer1.lr.ousl.com/tls/ca.crt"
+      }
+    },
+    "peer2.lr.ousl.com": {
+      "url": "peer2.lr.ousl.com:7051",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer2.lr.ousl.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/lr.ousl.com/peers/peer2.lr.ousl.com/tls/ca.crt"
+      }
+    },
+    "peer1.notary.ousl.com": {
+      "url": "peer1.notary.ousl.com:7051",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer1.notary.ousl.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/notary.ousl.com/peers/peer1.notary.ousl.com/tls/ca.crt"
+      }
+    },
+    "peer2.notary.ousl.com": {
+      "url": "peer2.notary.ousl.com:7051",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer2.notary.ousl.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/notary.ousl.com/peers/peer2.notary.ousl.com/tls/ca.crt"
+      }
+    },
+    "peer1.rgd.ousl.com": {
+      "url": "peer1.rgd.ousl.com:7051",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer1.rgd.ousl.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/rgd.ousl.com/peers/peer1.rgd.ousl.com/tls/ca.crt"
+      }
+    },
+    "peer2.rgd.ousl.com": {
+      "url": "peer2.rgd.ousl.com:7051",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer2.rgd.ousl.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/rgd.ousl.com/peers/peer2.rgd.ousl.com/tls/ca.crt"
+      }
+    },
+    "peer1.other.ousl.com": {
+      "url": "peer1.other.ousl.com:7051",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer1.other.ousl.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/other.ousl.com/peers/peer1.other.ousl.com/tls/ca.crt"
+      }
+    },
+    "peer2.other.ousl.com": {
+      "url": "peer2.other.ousl.com:7051",
+      "grpcOptions": {
+        "grpc.ssl_target_name_override": "peer2.other.ousl.com",
+        "grpc-max-send-message-length": 15
+      },
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/other.ousl.com/peers/peer2.other.ousl.com/tls/ca.crt"
+      }
+    }
+  },
+  "certificateAuthorities": {
+    "ca1.lr.ousl.com": {
+      "url": "https://ca1.lr.ousl.com:7054",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/lr.ousl.com/ca/ca1.lr.ousl.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca1.notary.ousl.com": {
+      "url": "https://ca1.notary.ousl.com:7054",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/notary.ousl.com/ca/ca1.notary.ousl.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca1.rgd.ousl.com": {
+      "url": "https://ca1.rgd.ousl.com:7054",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/rgd.ousl.com/ca/ca1.rgd.ousl.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    },
+    "ca1.other.ousl.com": {
+      "url": "https://ca1.other.ousl.com:7054",
+      "tlsCACerts": {
+        "path": "/keyfiles/peerOrganizations/other.ousl.com/ca/ca1.other.ousl.com-cert.pem"
+      },
+      "httpOptions": { "verify": "false" },
+      "caName": "ca1",
+      "registrar": { "enrollId": "admin", "enrollSecret": "adminpw" }
+    }
+  }
+}

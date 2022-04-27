@@ -1,0 +1,82 @@
+---
+OrdererOrgs:
+  - Name: ousl.com
+    Domain: ousl.com
+    Specs:
+      - Hostname: orderer1
+        SANS:
+          - orderer1.ousl.com
+
+PeerOrgs:
+  - Name: lr.ousl.com
+    Domain: lr.ousl.com
+    EnableNodeOUs: true
+    CA:
+      Hostname: ca1
+      CommonName: ca1.lr.ousl.com
+      Country: US
+      Province: North Carolina
+      Locality: Raleigh
+    Specs:
+      - Hostname: peer1
+        CommonName: peer1.lr.ousl.com
+        SANS:
+          - peer1.lr.ousl.com
+      - Hostname: peer2
+        CommonName: peer2.lr.ousl.com
+        SANS:
+          - peer2.lr.ousl.com
+  - Name: notary.ousl.com
+    Domain: notary.ousl.com
+    EnableNodeOUs: true
+    CA:
+      Hostname: ca1
+      CommonName: ca1.notary.ousl.com
+      Country: US
+      Province: North Carolina
+      Locality: Raleigh
+    Specs:
+      - Hostname: peer1
+        CommonName: peer1.notary.ousl.com
+        SANS:
+          - peer1.notary.ousl.com
+      - Hostname: peer2
+        CommonName: peer2.notary.ousl.com
+        SANS:
+          - peer2.notary.ousl.com
+  - Name: other.ousl.com
+    Domain: other.ousl.com
+    EnableNodeOUs: true
+    CA:
+      Hostname: ca1
+      CommonName: ca1.other.ousl.com
+      Country: US
+      Province: North Carolina
+      Locality: Raleigh
+    Specs:
+      - Hostname: peer1
+        CommonName: peer1.other.ousl.com
+        SANS:
+          - peer1.other.ousl.com
+      - Hostname: peer2
+        CommonName: peer2.other.ousl.com
+        SANS:
+          - peer2.other.ousl.com
+  - Name: rgd.ousl.com
+    Domain: rgd.ousl.com
+    EnableNodeOUs: true
+    CA:
+      Hostname: ca1
+      CommonName: ca1.rgd.ousl.com
+      Country: US
+      Province: North Carolina
+      Locality: Raleigh
+    Specs:
+      - Hostname: peer1
+        CommonName: peer1.rgd.ousl.com
+        SANS:
+          - peer1.rgd.ousl.com
+      - Hostname: peer2
+        CommonName: peer2.rgd.ousl.com
+        SANS:
+          - peer2.rgd.ousl.com
